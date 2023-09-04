@@ -8,7 +8,6 @@ module.exports = {
     "**/src/**/*.ts",
     "!**/src/index.ts",
     "!**/src/**/startServer.ts",
-    "!**/src/index.ts",
     "!**/src/**/connectToDatabase.ts",
   ],
 };
