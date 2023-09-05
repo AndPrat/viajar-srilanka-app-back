@@ -14,3 +14,17 @@ describe("Given a GET '/' endpoint", () => {
     });
   });
 });
+
+describe("Given a GET '/ping' endpoint", () => {
+  describe("When it receives a request", () => {
+    test("Then it should responde wiht status 404 with 'Endpoint not found' message", async () => {
+      const expectedStatusCode = 404;
+      const path = "/ping";
+      const expectedEndpointNotFound = "Endpoint not found";
+
+      const response = await request(app).get(path).expect(expectedStatusCode);
+
+      expect(response.body).toHaveProperty("error", expectedEndpointNotFound);
+    });
+  });
+});

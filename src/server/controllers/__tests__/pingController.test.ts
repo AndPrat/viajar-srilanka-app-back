@@ -1,4 +1,4 @@
-import pingController from "./PingController.js";
+import pingController from "../pingController.js";
 import { type Request, type Response } from "express";
 
 const req: Partial<Request> = {};
