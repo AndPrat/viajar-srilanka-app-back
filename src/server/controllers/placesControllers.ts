@@ -9,6 +9,7 @@ export const getPlaces = async (
 ) => {
   try {
     const places = await Place.find().exec();
+
     res.status(200).json({ places });
   } catch (error: unknown) {
     const customError = new CustomError(
