@@ -2,8 +2,8 @@ import "dotenv/config";
 import express from "express";
 import morgan from "morgan";
 import cors from "cors";
-import { endpointNotFound, generalError } from "./middlewares/errors.js";
-import pingController from "./controllers/pingController.js";
+import { endpointNotFound, generalError } from "./middlewares/errors/errors.js";
+import pingController from "./controllers/ping/pingController.js";
 
 const corsOptions = {
   origin: [process.env.ORIGIN_PROD!, process.env.ORIGIN_LOCAL!],

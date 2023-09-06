@@ -1,6 +1,6 @@
 import { type Request, type Response, type NextFunction } from "express";
-import CustomError from "../../../CustomError/CustomError.js";
-import { endpointNotFound } from "../errors";
+import CustomError from "../../../../CustomError/CustomError.js";
+import { endpointNotFound } from "../errors.js";
 
 const req: Partial<Request> = {};
 const res: Partial<Response> = {
