@@ -1,8 +1,8 @@
 import { type NextFunction, type Request, type Response } from "express";
-import Place from "../../../database/models/Place.js";
-import { placeMock } from "../../../mocks/placesMock.js";
+import Place from "../../../../database/models/Place.js";
+import { placeMock } from "../../../../mocks/placesMock.js";
 import { getPlaces } from "../placesControllers.js";
-import CustomError from "../../../CustomError/CustomError.js";
+import CustomError from "../../../../CustomError/CustomError.js";
 
 beforeEach(() => {
   jest.clearAllMocks();
