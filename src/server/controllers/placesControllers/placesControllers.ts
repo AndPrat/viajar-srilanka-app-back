@@ -1,6 +1,6 @@
 import { type NextFunction, type Request, type Response } from "express";
-import Place from "../../database/models/Place.js";
-import CustomError from "../../CustomError/CustomError.js";
+import Place from "../../../database/models/Place.js";
+import CustomError from "../../../CustomError/CustomError.js";
 
 export const getPlaces = async (
   _req: Request,
