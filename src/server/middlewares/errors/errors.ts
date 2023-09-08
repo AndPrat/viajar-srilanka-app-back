@@ -7,7 +7,7 @@ export const generalError = (
   res: Response,
   _next: NextFunction,
 ) => {
-  const errorMessage = error.message ?? "Internal server error";
+  const errorMessage = error.publicMessage ?? "Internal server error";
   const errorStatusCode = error.statusCode ?? 500;
 
   res.status(errorStatusCode).json({ error: errorMessage });
