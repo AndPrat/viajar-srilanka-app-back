@@ -1,10 +1,10 @@
 import { type NextFunction, type Request, type Response } from "express";
 import admin from "firebase-admin";
-import auth from "../auth.js";
+import auth from "./auth.js";
 import mongoose from "mongoose";
-import { type UserStructure } from "../../../../database/models/types.js";
-import User from "../../../../database/models/User.js";
-import CustomError from "../../../../CustomError/CustomError.js";
+import { type UserStructure } from "../../../database/models/types.js";
+import User from "../../../database/models/User.js";
+import CustomError from "../../../CustomError/CustomError.js";
 
 jest.mock("firebase-admin");
 
