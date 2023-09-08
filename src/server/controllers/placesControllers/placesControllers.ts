@@ -1,14 +1,18 @@
-import { type NextFunction, type Request, type Response } from "express";
+import { type NextFunction, type Response } from "express";
 import Place from "../../../database/models/Place.js";
 import CustomError from "../../../CustomError/CustomError.js";
+import { type AuthRequest } from "../../middlewares/auth/types.js";
+import { type PlaceStructure } from "../../../database/models/types.js";
 
 export const getPlaces = async (
-  _req: Request,
+  req: AuthRequest,
   res: Response,
   next: NextFunction,
 ) => {
   try {
-    const places = await Place.find().exec();
+    const _id = req.userId;
+
+    const places = await Place.find<PlaceStructure>({ user: _id }).exec();
 
     res.status(200).json({ places });
   } catch (error: unknown) {

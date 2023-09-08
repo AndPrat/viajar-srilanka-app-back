@@ -1,5 +1,22 @@
 import request from "supertest";
 import app from "../..";
+import { MongoMemoryServer } from "mongodb-memory-server";
+import connectToDatabase from "../../../database/connectToDatabase.js";
+import mongoose from "mongoose";
+
+jest.mock("firebase-admin");
+
+let server: MongoMemoryServer;
+
+beforeAll(async () => {
+  server = await MongoMemoryServer.create();
+  await connectToDatabase(server.getUri());
+});
+
+afterAll(async () => {
+  await mongoose.connection.close();
+  await server.stop();
+});
 
 describe("Given a GET '/' endpoint", () => {
   describe("When it receives a request", () => {
