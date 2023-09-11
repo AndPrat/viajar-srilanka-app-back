@@ -12,8 +12,8 @@ const auth = async (req: AuthRequest, _res: Response, next: NextFunction) => {
 
     if (!token) {
       const error = new CustomError("Unauthorized", 401, "No token provider");
-
       next(error);
+
       return;
     }
 
@@ -27,8 +27,8 @@ const auth = async (req: AuthRequest, _res: Response, next: NextFunction) => {
         404,
         "User is not found",
       );
-
       next(newError);
+
       return;
     }
 

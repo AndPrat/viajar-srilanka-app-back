@@ -1,6 +1,6 @@
 import { type NextFunction, type Request, type Response } from "express";
 import Place from "../../../../database/models/Place.js";
-import { placeMock } from "../../../../mocks/placesMock.js";
+import { placesMock } from "../../../../mocks/placesMock.js";
 import { getPlaces } from "../placesControllers.js";
 import CustomError from "../../../../CustomError/CustomError.js";
 
@@ -21,7 +21,7 @@ describe("Given placesControllers controller", () => {
       const expectedStatusCode = 200;
 
       Place.find = jest.fn().mockReturnValue({
-        exec: jest.fn().mockResolvedValue(placeMock),
+        exec: jest.fn().mockResolvedValue(placesMock),
       });
 
       await getPlaces(req as Request, res as Response, next);
@@ -32,7 +32,7 @@ describe("Given placesControllers controller", () => {
     test("Then it should call its method json with 'Sigiriya' and 'Ahas Namaye Palama'", async () => {
       await getPlaces(req as Request, res as Response, next);
 
-      expect(res.json).toHaveBeenCalledWith({ places: placeMock });
+      expect(res.json).toHaveBeenCalledWith({ places: placesMock });
     });
   });
 
