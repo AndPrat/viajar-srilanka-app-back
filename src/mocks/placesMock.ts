@@ -4,7 +4,7 @@ import { type PlaceStructure } from "../database/models/types.js";
 export const idPlace = new mongoose.Types.ObjectId().toString();
 export const authId = new mongoose.Types.ObjectId().toString();
 
-export const placeMock: PlaceStructure[] = [
+export const placesMock: PlaceStructure[] = [
   {
     _id: idPlace,
     name: "Sigiriya",
@@ -19,7 +19,7 @@ export const placeMock: PlaceStructure[] = [
     user: authId,
   },
   {
-    _id: idPlace,
+    _id: new mongoose.Types.ObjectId().toString(),
     name: "Ahas Namaye Palama",
     subtitle: "Tren de Kandy a Ella",
     location: "Ella",
