@@ -1,8 +1,8 @@
 import "dotenv/config";
-import startServer from "./server/startServer.js";
-import connectToDatabase from "./database/connectToDatabase.js";
 import { debug } from "console";
 import chalk from "chalk";
+import startServer from "./server/startServer.js";
+import connectToDatabase from "./database/connectToDatabase.js";
 
 const port = process.env.PORT ?? 4000;
 const mongoDbUrl = process.env.MONGODB_URL;

@@ -1,9 +1,9 @@
 import request from "supertest";
 import { MongoMemoryServer } from "mongodb-memory-server";
-import connectToDatabase from "../../../database/connectToDatabase.js";
 import mongoose from "mongoose";
 import admin from "firebase-admin";
 import app from "../..";
+import connectToDatabase from "../../../database/connectToDatabase.js";
 import { placesMock } from "../../../mocks/placesMock.js";
 import { type PlaceStructure } from "../../../database/models/types.js";
 import User from "../../../database/models/User.js";
