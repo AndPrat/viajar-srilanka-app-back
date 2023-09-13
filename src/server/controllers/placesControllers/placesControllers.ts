@@ -24,3 +24,27 @@ export const getPlaces = async (
     next(customError);
   }
 };
+
+export const deletePlaceById = async (
+  req: AuthRequest,
+  res: Response,
+  next: NextFunction,
+) => {
+  try {
+    const { placeId } = req.params;
+
+    await Place.findByIdAndDelete(placeId).exec();
+
+    res
+      .status(200)
+      .json({ message: "The place has been successfully removed" });
+  } catch (error: unknown) {
+    const customError = new CustomError(
+      (error as Error).message,
+      500,
+      "Can't remove the place",
+    );
+
+    next(customError);
+  }
+};
