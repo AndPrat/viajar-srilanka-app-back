@@ -37,7 +37,7 @@ describe("Given placesControllers controller", () => {
   });
 
   describe("When it receives a next function and there is an error", () => {
-    test("Then it should call teh received next function with a 500 status code and the 'Can't retrieve the places' message ", async () => {
+    test("Then it should call the received next function with a 500 status code and the 'Can't retrieve the places' message ", async () => {
       const expectedError = new CustomError(
         "Can't retrieve the places",
         500,
