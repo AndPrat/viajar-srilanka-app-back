@@ -1,7 +1,7 @@
 import { type NextFunction, type Request, type Response } from "express";
 import admin from "firebase-admin";
-import auth from "./auth.js";
 import mongoose from "mongoose";
+import auth from "./auth.js";
 import { type UserStructure } from "../../../database/models/types.js";
 import User from "../../../database/models/User.js";
 import CustomError from "../../../CustomError/CustomError.js";
