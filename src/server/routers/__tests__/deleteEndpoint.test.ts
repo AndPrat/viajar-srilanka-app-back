@@ -8,6 +8,7 @@ import tokenMock from "../../../mocks/tokenMock";
 import User from "../../../database/models/User.js";
 import userMock from "../../../mocks/userMock.js";
 import app from "../../index.js";
+import paths from "../paths/paths.js";
 
 jest.mock("firebase-admin");
 
@@ -31,12 +32,12 @@ User.findOne = jest.fn().mockReturnValue({
   exec: jest.fn().mockResolvedValue(userMock),
 });
 
-describe("Given a DELETE '/' lugares/:lugaresId  ", () => {
+describe("Given a DELETE '/' places/:placeId  ", () => {
   describe("When it receives a request", () => {
     test("Then it should respond with status 200 with 'Sigiriya' and 'Ahas Namaye Palama' objects", async () => {
       const expectedMessage = "The place has been successfully removed";
       const expectedStatusCode = 200;
-      const path = `/lugares/"${idPlace}`;
+      const path = `${paths.places}/${idPlace}`;
 
       const response = await request(app)
         .delete(path)

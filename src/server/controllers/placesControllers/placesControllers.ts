@@ -31,9 +31,9 @@ export const deletePlaceById = async (
   next: NextFunction,
 ) => {
   try {
-    const { placeId } = req.params;
+    const { id } = req.params;
 
-    await Place.findByIdAndDelete(placeId).exec();
+    await Place.findByIdAndDelete(id).exec();
 
     res
       .status(200)

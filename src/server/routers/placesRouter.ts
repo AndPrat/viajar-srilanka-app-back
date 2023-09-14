@@ -8,6 +8,6 @@ import {
 const placesRouter = express.Router();
 
 placesRouter.get(paths.root, getPlaces);
-placesRouter.delete(`${paths.root}:id`, deletePlaceById);
+placesRouter.delete(paths.deletePlaces, deletePlaceById);
 
 export default placesRouter;
