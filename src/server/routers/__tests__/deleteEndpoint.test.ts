@@ -35,7 +35,7 @@ User.findOne = jest.fn().mockReturnValue({
 describe("Given a DELETE '/' places/:placeId  ", () => {
   describe("When it receives a request", () => {
     test("Then it should respond with status 200 with 'Sigiriya' and 'Ahas Namaye Palama' objects", async () => {
-      const expectedMessage = "The place has been successfully removed";
+      const expectedMessage = "El lugar se ha borrado con éxito";
       const expectedStatusCode = 200;
       const path = `${paths.places}/${idPlace}`;
 
