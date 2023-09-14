@@ -10,6 +10,7 @@ import User from "../../../database/models/User.js";
 import Place from "../../../database/models/Place.js";
 import tokenMock from "../../../mocks/tokenMock.js";
 import userMock from "../../../mocks/userMock.js";
+import paths from "../paths/paths";
 
 jest.mock("firebase-admin");
 
@@ -37,7 +38,7 @@ describe("Given a GET '/' endpoint", () => {
   describe("When it receives a request", () => {
     test("Then it should respond with status 200 with 'Sigiriya' and 'Ahas Namaye Palama' objects", async () => {
       const expectedStatusCode = 200;
-      const path = "/lugares";
+      const path = paths.places;
 
       await User.create(userMock);
       await Place.create(placesMock);
