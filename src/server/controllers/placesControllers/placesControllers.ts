@@ -35,14 +35,12 @@ export const deletePlaceById = async (
 
     await Place.findByIdAndDelete(id).exec();
 
-    res
-      .status(200)
-      .json({ message: "The place has been successfully removed" });
+    res.status(200).json({ message: "El lugar se ha borrado con éxito" });
   } catch (error: unknown) {
     const customError = new CustomError(
       (error as Error).message,
       500,
-      "Can't remove the place",
+      "No se ha podido borrar el lugar",
     );
 
     next(customError);
