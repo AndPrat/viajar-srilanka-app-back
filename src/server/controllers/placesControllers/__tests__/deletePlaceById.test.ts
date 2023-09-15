@@ -45,7 +45,7 @@ describe("Given deletePlaceById controller", () => {
   });
 
   describe("When it receives a next function and there is an error", () => {
-    test("Then it should call the received next funcion witu a 500 status code and the 'Can't remove the place' message", async () => {
+    test("Then it should call the received next funcion with a 500 status code and the 'No se ha podido borrar el lugar' message", async () => {
       const expectedError = new CustomError(
         "No se ha podido borrar el lugar",
         500,

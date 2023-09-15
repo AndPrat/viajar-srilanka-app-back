@@ -46,3 +46,25 @@ export const deletePlaceById = async (
     next(customError);
   }
 };
+
+export const addPlace = async (
+  req: AuthRequest,
+  res: Response,
+  next: NextFunction,
+) => {
+  try {
+    const { id } = req.params;
+
+    await Place.create(id);
+
+    res.status(200).json({ message: "El lugar se ha añadido con éxito" });
+  } catch (error: unknown) {
+    const customError = new CustomError(
+      (error as Error).message,
+      500,
+      "No se ha podido añadir el lugar",
+    );
+
+    next(customError);
+  }
+};
