@@ -53,11 +53,12 @@ export const addPlace = async (
   next: NextFunction,
 ) => {
   try {
-    const { id } = req.params;
+    const place = req.body;
+    const _id = req.userId;
 
-    await Place.create(id);
+    const newPlace = await Place.create({ ...place, user: _id?.toString() });
 
-    res.status(200).json({ message: "El lugar se ha añadido con éxito" });
+    res.status(201).json({ place: newPlace });
   } catch (error: unknown) {
     const customError = new CustomError(
       (error as Error).message,
