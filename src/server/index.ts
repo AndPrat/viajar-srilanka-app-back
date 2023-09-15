@@ -16,6 +16,8 @@ const app = express();
 
 app.disable("x-powered-by");
 
+app.use(express.json());
+
 app.use(morgan("dev"));
 
 app.use(cors(corsOptions));

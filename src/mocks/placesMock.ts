@@ -62,3 +62,15 @@ export const deletePlacesMock: PlaceStructure[] = [
     user: authId,
   },
 ];
+
+export const placeMock: Partial<PlaceStructure> = {
+  name: "Sigiriya",
+  subtitle: "Templo de la roca del león",
+  location: "Matale",
+  schedule: "8h a 17h",
+  otherRelatedPlace: "Mirador Pidurangala",
+  description:
+    "La inmensa e imponente Roca del León o Lion Rock de Sigiriya, nacida de una erupción volcánica, emerge como un titán en el paisaje de la ciudad, que ineludiblemente ha ligado su historia a ella.",
+  image:
+    "https://images.squarespace-cdn.com/content/v1/6298cb774cf3830bc9b342bf/e0ec3d17-bb76-4f83-920c-f57579d2e813/Sigiriya+Rock.jpg",
+};

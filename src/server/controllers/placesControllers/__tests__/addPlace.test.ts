@@ -3,20 +3,17 @@ import {
   type Request,
   type Response,
 } from "express-serve-static-core";
-import Place from "../../../../database/models/Place.js";
-import { idPlace } from "../../../../mocks/placesMock.js";
-import { addPlace } from "../placesControllers";
-import { type AuthRequest } from "../../../middlewares/auth/types";
 import CustomError from "../../../../CustomError/CustomError";
+import Place from "../../../../database/models/Place.js";
+import { placeMock, placesMock } from "../../../../mocks/placesMock.js";
+import { addPlace } from "../placesControllers";
 
 beforeEach(() => {
   jest.clearAllMocks();
 });
 
 const req: Partial<Request> = {
-  params: {
-    id: idPlace,
-  },
+  body: placesMock,
 };
 const res: Partial<Response> = {
   status: jest.fn().mockReturnThis(),
@@ -26,26 +23,26 @@ const next: NextFunction = jest.fn();
 
 describe("Given a addPlace controller", () => {
   describe("When it receives a response", () => {
-    test("Then it should call its method status whith 200", async () => {
-      const expectedStatusCode = 200;
+    test("Then it should call its method status whith 201", async () => {
+      const expectedStatusCode = 201;
       Place.create = jest.fn().mockReturnValue({
         exec: jest.fn(),
       });
 
-      await addPlace(req as AuthRequest, res as Response, next);
+      await addPlace(req as Request, res as Response, next);
 
       expect(res.status).toHaveBeenCalledWith(expectedStatusCode);
     });
   });
 
   test("Then it should call its method json with 'Sigiriya' place added successfully", async () => {
-    const expectedMessage = {
-      message: "El lugar se ha añadido con éxito",
-    };
+    Place.create = jest.fn().mockResolvedValue(placeMock);
 
-    await addPlace(req as AuthRequest, res as Response, next);
+    const expectedPlace = { place: placeMock };
 
-    expect(res.json).toHaveBeenCalledWith(expectedMessage);
+    await addPlace(req as Request, res as Response, next);
+
+    expect(res.json).toHaveBeenCalledWith(expectedPlace);
   });
 
   describe("When it receives a next function and there is an error", () => {
