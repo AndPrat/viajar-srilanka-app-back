@@ -4,6 +4,7 @@ const paths: PathsStructure = {
   root: "/",
   places: "/places",
   deletePlaces: "/:id",
+  placeId: "/:placeId",
 };
 
 export default paths;
