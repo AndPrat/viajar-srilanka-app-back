@@ -8,6 +8,7 @@ export interface PlaceStructure {
   description: string;
   image: string;
   user: string;
+  __v?: number;
 }
 
 export interface UserStructure {

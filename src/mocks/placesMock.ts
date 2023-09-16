@@ -74,3 +74,18 @@ export const placeMock: Partial<PlaceStructure> = {
   image:
     "https://images.squarespace-cdn.com/content/v1/6298cb774cf3830bc9b342bf/e0ec3d17-bb76-4f83-920c-f57579d2e813/Sigiriya+Rock.jpg",
 };
+
+export const placeByIdMock: PlaceStructure = {
+  _id: idPlace2,
+  name: "Ahas Namaye Palama",
+  subtitle: "Tren de Kandy a Ella",
+  location: "Ella",
+  schedule: "7h a 20h",
+  otherRelatedPlace: "Recorrido de tren de Kandy a Ella",
+  description:
+    "Viajar en tren por Sri Lanka ofrece una de las experiencias más mágicas del mundo. Con los años, los viajeros han optado por replicar a los residentes y salir con precaución del tren para disfrutar mejor de las vistas y de una sensación increíble.",
+  image:
+    "https://www.magazinespain.com/wp-content/uploads/2019/08/sri-lanka-tren-nuwara-eliya-a-ella-portada.jpg",
+  user: authId,
+  __v: 0,
+};
