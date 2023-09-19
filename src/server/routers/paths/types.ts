@@ -3,4 +3,5 @@ export interface PathsStructure {
   places: string;
   deletePlaces: string;
   placeId: string;
+  modifyId: string;
 }

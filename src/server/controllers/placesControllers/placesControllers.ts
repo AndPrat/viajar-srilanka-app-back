@@ -1,8 +1,11 @@
 import { type NextFunction, type Response } from "express";
-import Place from "../../../database/models/Place.js";
 import CustomError from "../../../CustomError/CustomError.js";
-import { type AuthRequest } from "../../middlewares/auth/types.js";
+import Place from "../../../database/models/Place.js";
 import { type PlaceStructure } from "../../../database/models/types.js";
+import {
+  type AuthRequestWithBooleanBody,
+  type AuthRequest,
+} from "../../middlewares/auth/types.js";
 
 export const getPlaces = async (
   req: AuthRequest,
@@ -89,6 +92,37 @@ export const getPlaceById = async (
       (error as Error).message,
       404,
       "No se ha podido obtener el lugar",
+    );
+
+    next(customError);
+  }
+};
+
+export const modifyPlaceById = async (
+  req: AuthRequestWithBooleanBody,
+  res: Response,
+  next: NextFunction,
+) => {
+  try {
+    const { placeId } = req.params;
+    const isFavorite = req.body === "true";
+
+    const modifyPlace = await Place.findByIdAndUpdate(
+      placeId,
+      {
+        isFavorite: !isFavorite,
+      },
+      {
+        returnDocument: "after",
+      },
+    ).exec();
+
+    res.status(200).json({ place: modifyPlace });
+  } catch (error: unknown) {
+    const customError = new CustomError(
+      (error as Error).message,
+      304,
+      "No se ha podido añadir a favoritos",
     );
 
     next(customError);

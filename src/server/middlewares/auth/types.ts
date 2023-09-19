@@ -9,3 +9,7 @@ export interface AuthRequest
   > {
   userId?: string;
 }
+export interface AuthRequestWithBooleanBody
+  extends Request<Record<string, unknown>, Record<string, unknown>, string> {
+  userId?: string;
+}

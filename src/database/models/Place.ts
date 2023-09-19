@@ -34,6 +34,10 @@ const placeSchema = new Schema<PlaceStructure>({
     type: String,
     required: true,
   },
+  isFavorite: {
+    type: Boolean,
+    required: true,
+  },
 });
 
 const Place = model("Place", placeSchema, "places");
