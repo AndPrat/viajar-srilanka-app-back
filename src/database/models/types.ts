@@ -9,6 +9,7 @@ export interface PlaceStructure {
   image: string;
   user: string;
   __v?: number;
+  isFavorite: boolean;
 }
 
 export interface UserStructure {
