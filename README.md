@@ -19,27 +19,27 @@
 ## Endpoint feedback messages
 
 GET endpoint
-:green_circle: Success message: "El lugar se ha borrado con éxito"
-:red_circle: Error message "No se ha podido borrar el lugar"
+:green_circle: Success message: `El lugar se ha borrado con éxito`
+:red_circle: Error message `No se ha podido borrar el lugar`
 
 GET / placeId endpoint
-:red_circle: Error message "No se ha podido obtener el lugar"
+:red_circle: Error message `No se ha podido obtener el lugar`
 
 DELETE endpoint
-:green_circle: Success message: "El lugar se ha borrado con éxito"
-:red_circle: Error message "No se ha podido borrar el lugar"
+:green_circle: Success message: `El lugar se ha borrado con éxito`
+:red_circle: Error message `No se ha podido borrar el lugar`
 
 POST endpoint
-:green_circle: Success message: "El lugar se ha añadido con éxito"
-:red_circle: Error message "No se ha podido añadir el lugar"
+:green_circle: Success message: `El lugar se ha añadido con éxito`
+:red_circle: Error message `No se ha podido añadir el lugar`
 
 PATCH / endpoint
-:red_circle: Error message "No se ha podido añadir a favoritos"
+:red_circle: Error message `No se ha podido añadir a favoritos`
 
 ## Errors feedback messages
 
 Error generalError
-:red_circle: Error message "Internal server error"
+:red_circle: Error message `Internal server error`
 
 Error endpointNotFound
-:red_circle: Error message "Endpoint not found"
+:red_circle: Error message `Endpoint not found`
